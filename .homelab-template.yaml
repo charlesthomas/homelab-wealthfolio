@@ -1,0 +1,44 @@
+_commit: v1.12.1-10-g6796849
+_src_path: /Users/crthomas/code/charlesthomas/homelab-template
+additionalResources: ''
+backups: false
+helm: false
+homepageDescription: Investment Tracker
+homepageEnabled: true
+homepageGroup: Finances
+homepageIcon: wealthfolio
+homepageName: '"Wealth Folio"'
+ingClass: nginx-internal
+ingCname: ''
+ingExtraAnnotations: ''
+ingHost: stonk.crt.house
+ingName: wealthfolio
+ingPathType: Prefix
+ingWebSockets: false
+ingress: true
+labels: 'app: wealthfolio'
+name: wealthfolio
+namespace: wealthfolio
+pvc: true
+pvcAccessMode: ReadWriteOnce
+pvcName: wealthfolio
+pvcSize: 5Gi
+pvcStorageClass: longhorn-retain
+reloader: false
+resources:
+- deployments.yaml
+- external-secrets.yaml
+- ingresses.yaml
+- pvcs.yaml
+- services.yaml
+service: true
+serviceAccount: false
+svcName: wealthfolio
+svcPortName: http
+svcPortNum: 8088
+svcProtocol: TCP
+svcSelector: 'app: wealthfolio'
+svcTargetPort: http
+svcType: ClusterIP
+upstreamURL: https://wealthfolio.app/
+url: https://github.com/charlesthomas/homelab-wealthfolio
