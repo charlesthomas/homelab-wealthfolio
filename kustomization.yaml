@@ -8,6 +8,11 @@ commonAnnotations:
 commonLabels:
   app: wealthfolio
 
+images:
+  - name: wealthfolio
+    newName: docker.io/wealthfolio/wealthfolio
+    newTag: 3.5.2
+
 resources:
 - resources/deployments.yaml
 - resources/external-secrets.yaml
@@ -15,6 +20,7 @@ resources:
 - resources/namespaces.yaml
 - resources/pvcs.yaml
 - resources/services.yaml
+
 patches:
 - patch: |-
     apiVersion: networking.k8s.io/v1
