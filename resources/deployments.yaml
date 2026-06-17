@@ -1,0 +1,59 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wealthfolio
+  namespace: wealthfolio
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wealthfolio
+  template:
+    metadata:
+      labels:
+        app: wealthfolio
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+        - name: wealthfolio
+          image: wealthfolio
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: WF_AUTH_REQUIRED
+              value: "true"
+            - name: WF_DB_PATH
+              value: /data/wealthfolio.db
+            - name: WF_CORS_ALLOW_ORIGINS
+              value: https://stonk.crt.house
+            - name: WF_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: wealthfolio
+                  key: secret-key
+            - name: WF_AUTH_PASSWORD_HASH
+              valueFrom:
+                secretKeyRef:
+                  name: wealthfolio
+                  key: password-hash
+          ports:
+            - name: http
+              containerPort: 8088
+              protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: http
+          readinessProbe:
+            tcpSocket:
+              port: http
+          resources: {}
+          volumeMounts:
+            - mountPath: /data
+              name: data
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: wealthfolio
