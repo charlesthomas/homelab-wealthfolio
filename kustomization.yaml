@@ -1,0 +1,34 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: wealthfolio
+
+commonAnnotations:
+  repo: https://github.com/charlesthomas/homelab-wealthfolio
+commonLabels:
+  app: wealthfolio
+
+resources:
+- resources/deployments.yaml
+- resources/external-secrets.yaml
+- resources/ingresses.yaml
+- resources/namespaces.yaml
+- resources/pvcs.yaml
+- resources/services.yaml
+patches:
+- patch: |-
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: wealthfolio
+      namespace: wealthfolio
+      annotations:
+        gethomepage.dev/href: https://stonk.crt.house
+        gethomepage.dev/enabled: "true"
+        gethomepage.dev/description: Investment Tracker
+        gethomepage.dev/group: Finances
+        gethomepage.dev/icon: wealthfolio
+        gethomepage.dev/name: "Wealth Folio"
+        gethomepage.dev/pod-selector: ""
+  target:
+    kind: Ingress
