@@ -11,7 +11,7 @@ commonLabels:
 images:
   - name: wealthfolio
     newName: docker.io/wealthfolio/wealthfolio
-    newTag: 3.5.2
+    newTag: 3.5.3
 
 resources:
 - resources/deployments.yaml
