@@ -5,11 +5,11 @@ metadata:
   name: wealthfolio
   namespace: wealthfolio
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: stonk.crt.house
+    external-dns.alpha.kubernetes.io/hostname: wealth.crt.house
 spec:
   ingressClassName: nginx-internal
   rules:
-    - host: "stonk.crt.house"
+    - host: "wealth.crt.house"
       http:
         paths:
           - path: "/"
@@ -21,4 +21,4 @@ spec:
                   number: 8088
   tls:
     - hosts:
-      - stonk.crt.house
+      - wealth.crt.house

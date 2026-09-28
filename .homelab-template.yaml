@@ -6,12 +6,12 @@ helm: false
 homepageDescription: Investment Tracker
 homepageEnabled: true
 homepageGroup: Finances
-homepageIcon: wealthfolio
+homepageIcon: https://wealthfolio.app/favicon.ico
 homepageName: '"Wealth Folio"'
 ingClass: nginx-internal
 ingCname: ''
 ingExtraAnnotations: ''
-ingHost: stonk.crt.house
+ingHost: wealth.crt.house
 ingName: wealthfolio
 ingPathType: Prefix
 ingWebSockets: false

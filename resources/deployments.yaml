@@ -28,7 +28,7 @@ spec:
             - name: WF_DB_PATH
               value: /data/wealthfolio.db
             - name: WF_CORS_ALLOW_ORIGINS
-              value: https://stonk.crt.house
+              value: https://wealth.crt.house
             - name: WF_SECRET_KEY
               valueFrom:
                 secretKeyRef:

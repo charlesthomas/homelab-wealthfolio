@@ -11,7 +11,7 @@ commonLabels:
 images:
   - name: wealthfolio
     newName: docker.io/wealthfolio/wealthfolio
-    newTag: 3.6.2
+    newTag: 3.9.1
 
 resources:
 - resources/deployments.yaml
@@ -29,11 +29,11 @@ patches:
       name: wealthfolio
       namespace: wealthfolio
       annotations:
-        gethomepage.dev/href: https://stonk.crt.house
+        gethomepage.dev/href: https://wealth.crt.house
         gethomepage.dev/enabled: "true"
         gethomepage.dev/description: Investment Tracker
         gethomepage.dev/group: Finances
-        gethomepage.dev/icon: wealthfolio
+        gethomepage.dev/icon: https://wealthfolio.app/favicon.ico
         gethomepage.dev/name: "Wealth Folio"
         gethomepage.dev/pod-selector: ""
   target:
