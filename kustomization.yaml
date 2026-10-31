@@ -5,8 +5,10 @@ namespace: wealthfolio
 
 commonAnnotations:
   repo: https://github.com/charlesthomas/homelab-wealthfolio
-commonLabels:
-  app: wealthfolio
+labels:
+- includeSelectors: true
+  pairs:
+    app: wealthfolio
 
 images:
   - name: wealthfolio
